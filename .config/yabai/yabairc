@@ -1,0 +1,44 @@
+# default layout (can be bsp, stack or float)
+yabai -m config layout bsp
+
+# new window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+PADDING=10
+
+# padding
+yabai -m config top_padding $PADDING
+yabai -m config bottom_padding $PADDING
+yabai -m config left_padding $PADDING
+yabai -m config right_padding $PADDING
+yabai -m config window_gap $PADDING
+
+# status bar
+
+yabai -m config external_bar all:28:0
+
+# -- mouse settings --
+
+# center mouse on window with focus
+# yabai -m config mouse_follows_focus on
+
+# focus window without clicking it
+# yabai -m config focus_follows_mouse autoraise
+
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+# when window is dropped in center of another window, swap them (on edges it will split it)
+yabai -m mouse_drop_action swap
+
+
+# disable specific apps
+yabai -m rule --add app="^System Settings$" layer=above manage=off
+yabai -m rule --add app="^Calculator$" layer=above manage=off
+yabai -m rule --add app="^QuickTime Player$" layer=above manage=off
